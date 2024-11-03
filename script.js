@@ -1,14 +1,8 @@
-// Create a function that gives a personalized greeting.
-// This function takes two parameters: name and owner.
+// Write function RemoveExclamationMarks which
+// removes all exclamation marks from a given string.
 
-// Use conditionals to return the proper message:
-
-// case	                         return
-// name equals owner	          'Hello boss'
-// otherwise	                  'Hello guest'
-
-function greet(name, owner) {
-  return name === owner ? 'Hello boss' : 'Hello guest';
+function removeExclamationMarks(s) {
+  return s.split('!').join('');
 }
 
-console.log(greet('Marijus', 'Alfred'));
+console.log(removeExclamationMarks('Hello!!!'));
