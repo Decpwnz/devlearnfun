@@ -1,29 +1,14 @@
-// Implement a function that accepts 3 integer values a, b, c.
-// The function should return true if a triangle can be built with
-// the sides of given length and false in any other case.
+// Create a function that gives a personalized greeting.
+// This function takes two parameters: name and owner.
 
-// (In this case, all triangles must have surface greater than 0 to be accepted).
+// Use conditionals to return the proper message:
 
-// Examples:
+// case	                         return
+// name equals owner	          'Hello boss'
+// otherwise	                  'Hello guest'
 
-// Input -> Output
-// 1,2,2 -> true
-// 4,2,3 -> true
-// 2,2,2 -> true
-// 1,2,3 -> false
-// -5,1,3 -> false
-// 0,2,3 -> false
-// 1,2,9 -> false
-
-function isTriangle(a, b, c) {
-  // triangle inequality theorem
-  // a + b > c
-  // a + c > b
-  // b + c > a
-  // if (a + b > c && a + c > b && b + c > a) return true;
-  // if (a + c > b) return true;
-  // if (b + c > a) return true;
-  return a + b > c && a + c > b && b + c > a;
+function greet(name, owner) {
+  return name === owner ? 'Hello boss' : 'Hello guest';
 }
 
-console.log(isTriangle(1, 2, 2));
+console.log(greet('Marijus', 'Alfred'));
