@@ -1,34 +1,24 @@
-// All of the animals are having a feast! Each animal is bringing one dish.
-// There is just one rule: the dish must start and end with the same letters as the animal's name.
-// For example, the great blue heron is bringing garlic naan and the chickadee is bringing chocolate cake.
+// Character recognition software is widely used to digitise printed texts.
+// Thus the texts can be edited, searched and stored on a computer.
 
-// Write a function feast that takes the animal's name and dish as arguments and
-// returns true or false to indicate whether the beast is allowed to bring the dish to the feast.
+// When documents (especially pretty old ones written with a typewriter),
+// are digitised character recognition softwares often make mistakes.
 
-// Assume that beast and dish are always lowercase strings,
-// and that each has at least two letters. beast and dish may contain hyphens and spaces,
-// but these will not appear at the beginning or end of the string. They will not contain numerals.
+// Your task is correct the errors in the digitised text.
+// You only have to handle the following mistakes:
 
-// function feast(beast, dish) {
-//   if (beast.length < 2 || dish.length < 2)
-//     return 'String has to be longer than 2 letters';
-//   if (typeof beast === 'number' || typeof dish === 'number')
-//     return 'Cannot be number';
+// S is misinterpreted as 5
+// O is misinterpreted as 0
+// I is misinterpreted as 1
+// The test cases contain numbers only by mistake.
 
-//   const arr1 = beast.toLowerCase().split('');
-//   const arr2 = dish.toLowerCase().split('');
-
-//   return arr1[arr1.length - 1] === arr2[arr2.length - 1] && arr1[0] === arr2[0];
-// }
-
-// console.log(feast('1', 'Brooovat abibosinatt'));
-
-function feast(beast, dish) {
-  console.log(beast[0]);
-
-  return (
-    beast[0] === dish[0] && beast[beast.length - 1] === dish[dish.length - 1]
-  );
+function correct(string) {
+  const re = /0|5|1/gi;
+  return string.replace(re, (match) => {
+    if (match === '0') return 'O';
+    if (match === '5') return 'S';
+    if (match === '1') return 'I';
+  });
 }
 
-console.log(feast('hihi', 'helloi'));
+console.log(correct('l0nd0n15'));
