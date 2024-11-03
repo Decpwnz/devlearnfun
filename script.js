@@ -1,33 +1,29 @@
-// A square of squares
-// You like building blocks. You especially like building blocks that are squares.
-// And what you even like more, is to arrange them into a square of square building blocks!
+// Implement a function that accepts 3 integer values a, b, c.
+// The function should return true if a triangle can be built with
+// the sides of given length and false in any other case.
 
-// However, sometimes, you can't arrange them into a square. Instead,
-// you end up with an ordinary rectangle! Those blasted things!
-// If you just had a way to know, whether you're currently working in vain… Wait!
-// That's it! You just have to check if your number of building blocks is a perfect square.
+// (In this case, all triangles must have surface greater than 0 to be accepted).
 
-// Task
-// Given an integral number, determine if it's a square number:
+// Examples:
 
-// In mathematics, a square number or perfect square is an integer that is the square of an integer;
-// in other words, it is the product of some integer with itself.
+// Input -> Output
+// 1,2,2 -> true
+// 4,2,3 -> true
+// 2,2,2 -> true
+// 1,2,3 -> false
+// -5,1,3 -> false
+// 0,2,3 -> false
+// 1,2,9 -> false
 
-// The tests will always use some integral number,
-// so don't worry about that in dynamic typed languages.
+function isTriangle(a, b, c) {
+  // triangle inequality theorem
+  // a + b > c
+  // a + c > b
+  // b + c > a
+  // if (a + b > c && a + c > b && b + c > a) return true;
+  // if (a + c > b) return true;
+  // if (b + c > a) return true;
+  return a + b > c && a + c > b && b + c > a;
+}
 
-// Examples
-
-// -1  =>  false
-//  0  =>  true
-//  3  =>  false
-//  4  =>  true
-// 25  =>  true
-// 26  =>  false
-
-var isSquare = function (n) {
-  const isInt = Number.isInteger(Math.sqrt(n));
-  return n < 0 ? false : n === 0 ? true : isInt;
-};
-
-console.log(isSquare(4));
+console.log(isTriangle(1, 2, 2));
