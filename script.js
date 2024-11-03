@@ -1,10 +1,18 @@
-// Write a function that checks if a given string (case insensitive) is a palindrome.
+// Create a function that accepts a string and a single character,
+// and returns an integer of the count of occurrences the 2nd argument is found in the first one.
 
-// A palindrome is a word, number, phrase,
-// or other sequence of symbols that reads the same backwards as forwards, such as madam or racecar.
+// If no occurrences can be found, a count of 0 should be returned.
 
-function isPalindrome(x) {
-  return x.toLowerCase() === x.toLowerCase().split('').reverse().join('');
+// ("Hello", 'o')  =>  1
+// ("Hello", 'l')  =>  2
+// ("", 'z')       =>  0
+
+// Notes
+// The first argument can be an empty string
+// In languages with no distinct character data type, the second argument will be a string of length 1
+
+function strCount(str, letter) {
+  return str.split('').filter((value) => value === letter).length;
 }
 
-console.log(isPalindrome('abBa'));
+console.log(strCount('Hellooooooo', 'o'));
