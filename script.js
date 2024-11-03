@@ -1,24 +1,10 @@
-// Character recognition software is widely used to digitise printed texts.
-// Thus the texts can be edited, searched and stored on a computer.
+// Write a function that checks if a given string (case insensitive) is a palindrome.
 
-// When documents (especially pretty old ones written with a typewriter),
-// are digitised character recognition softwares often make mistakes.
+// A palindrome is a word, number, phrase,
+// or other sequence of symbols that reads the same backwards as forwards, such as madam or racecar.
 
-// Your task is correct the errors in the digitised text.
-// You only have to handle the following mistakes:
-
-// S is misinterpreted as 5
-// O is misinterpreted as 0
-// I is misinterpreted as 1
-// The test cases contain numbers only by mistake.
-
-function correct(string) {
-  const re = /0|5|1/gi;
-  return string.replace(re, (match) => {
-    if (match === '0') return 'O';
-    if (match === '5') return 'S';
-    if (match === '1') return 'I';
-  });
+function isPalindrome(x) {
+  return x.toLowerCase() === x.toLowerCase().split('').reverse().join('');
 }
 
-console.log(correct('l0nd0n15'));
+console.log(isPalindrome('abBa'));
