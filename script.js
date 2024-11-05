@@ -1,42 +1,24 @@
-// Our football team has finished the championship.
+// Given the triangle of consecutive odd numbers:
 
-// Our team's match results are recorded in a collection of strings.
-// Each match is represented by a string in the format "x:y",
-// where x is our team's score and y is our opponents score.
+//              1
+//           3     5
+//        7     9    11
+//    13    15    17    19
+// 21    23    25    27    29
+// ...
+// Calculate the sum of the numbers in the nth row of
+// this triangle (starting at index 1) e.g.: (Input --> Output)
 
-// For example: ["3:1", "2:2", "0:1", ...]
+// 1 -->  1
+// 2 --> 3 + 5 = 8
 
-// Points are awarded for each match as follows:
-
-// if x > y: 3 points (win)
-// if x < y: 0 points (loss)
-// if x = y: 1 point (tie)
-// We need to write a function that takes this collection
-// and returns the number of points our team (x) got in the
-// championship by the rules given above.
-
-// Notes:
-
-// our team always plays 10 matches in the championship
-// 0 <= x <= 4
-// 0 <= y <= 4
-
-function points(games) {
-  let x,
-    y,
-    points = 0;
-
-  for (let i = 0; i < games.length; i++) {
-    x = games[i][0];
-    y = games[i][2];
-
-    if (x > y) points += 3;
-    if (x < y) points += 0;
-    if (x === y) points += 1;
+function rowSumOddNumbers(n) {
+  let firstNumber = Math.pow(n, 2) - (n - 1);
+  let sum = firstNumber;
+  for (let i = 1; i < n; i++) {
+    firstNumber += 2;
+    sum += firstNumber;
   }
-  return points;
+  return sum;
 }
-
-console.log(
-  points(['1:0', '2:0', '3:0', '4:0', '2:1', '3:1', '4:1', '3:2', '4:2', '4:3'])
-);
+console.log(rowSumOddNumbers(4));
